@@ -1,0 +1,22 @@
+name: dir
+
+on:
+  workflow_dispatch:
+
+jobs:
+  dir:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: main
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          path: main
+
+      - name: echo
+        run: |
+          echo "${{ github.workspace }}"
+          pwd
+          ls -la
